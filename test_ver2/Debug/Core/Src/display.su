@@ -1,0 +1,9 @@
+display.c:11:6:ledOFF	8	static
+display.c:16:6:ledON	8	static
+display.c:21:6:ledredON	8	static
+display.c:26:6:ledgreenON	8	static
+display.c:31:6:ledyellowON	8	static
+display.c:37:6:display7SEG1	16	static
+display.c:136:6:display7SEG2	16	static
+display.c:233:6:display7SEG3	16	static
+display.c:330:6:display7SEG4	16	static
