@@ -14,7 +14,8 @@
 #include "main.h"
 
 int isButton1PRESS();
-
+int isButton2PRESS();
+int isButton3PRESS();
 void getKeyInput();
 
 #endif /* INC_BUTTON_H_ */

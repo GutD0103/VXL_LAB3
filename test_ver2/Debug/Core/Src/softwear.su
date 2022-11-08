@@ -1,3 +1,4 @@
-softwear.c:16:6:setTimer1	16	static
-softwear.c:21:6:setTimer2	16	static
-softwear.c:27:6:timerRun	4	static
+softwear.c:19:6:setTimer1	16	static
+softwear.c:24:6:setTimer2	16	static
+softwear.c:29:6:setTimer3	16	static
+softwear.c:34:6:timerRun	4	static

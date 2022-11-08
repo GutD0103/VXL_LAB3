@@ -1,4 +1,4 @@
-todo.c:17:6:todoMODE1	8	static
-todo.c:87:6:todoMODE2	8	static
-todo.c:112:6:todoMODE3	8	static
-todo.c:136:6:todoMODE4	8	static
+todo.c:22:6:todoMODE1	8	static
+todo.c:100:6:todoMODE2	8	static
+todo.c:122:6:todoMODE3	8	static
+todo.c:144:6:todoMODE4	8	static

@@ -10,74 +10,87 @@
 
 float value = 0.5;
 int temp = 0;
+int blink = 10;
 
-int state_MODE1 = 0;
-
-int counter1;
+int state_MODE1_x = 0;
+int state_MODE1_y = 0;
+int state_MODE2 = 0;
+int state_MODE3 = 0;
+int state_MODE4 = 0;
+int counter_x;
+int counter_y;
 void todoMODE1(){
-
-	switch (state_MODE1){
+	if(timer1_flag == 1){
+		counter_x--;
+		counter_y--;
+		setTimer1(1000);
+	}
+	switch (state_MODE1_x){
 		case 0 :
-			ledOFF();
 			if(timer1_flag == 1){
-				state_MODE1 = 1;
-				counter1 = 5;
-				setTimer2(100);
-				setTimer1(5000);
+				counter_x = 5;
+				state_MODE1_x = 1;
 			}
 			break;
 		case 1:
-			ledredON();
-			display7SEG1(counter1);
-			display7SEG2(counter1);
-			display7SEG3(counter1);
-			display7SEG4(counter1);
-			if(timer2_flag == 1){
-				counter1--;
-				setTimer2(100);
-			}
-			if(timer1_flag == 1){
-				state_MODE1 = 2;
-				counter1 = 3;
-				setTimer2(100);
-				setTimer1(3000);
+			ledredON_x();
+			updateClockBuffer(2, counter_x);
+			if(counter_x == 0){
+				counter_x = 3;
+				state_MODE1_x = 2;
 			}
 			break;
 		case 2:
-			ledgreenON();
-			display7SEG1(counter1);
-			display7SEG2(counter1);
-			display7SEG3(counter1);
-			display7SEG4(counter1);
-			if(timer2_flag == 1){
-				counter1--;
-				setTimer2(100);
-			}
-			if(timer1_flag == 1){
-				state_MODE1 = 3;
-				counter1 = 2;
-				setTimer2(100);
-				setTimer1(2000);
+			ledgreenON_x();
+			updateClockBuffer(2,counter_x );
+			if(counter_x == 0){
+				counter_x = 2;
+				state_MODE1_x = 3;
 			}
 			break;
 		case 3:
-			ledyellowON();
-			display7SEG1(counter1);
-			display7SEG2(counter1);
-			display7SEG3(counter1);
-			display7SEG4(counter1);
-			if(timer2_flag == 1){
-				counter1--;
-				setTimer2(100);
-			}
-			if(timer1_flag == 1){
-				state_MODE1 = 1;
-				counter1 = 5;
-				setTimer2(100);
-				setTimer1(5000);
+			ledyellowON_x();
+			updateClockBuffer(2, counter_x);
+			if(counter_x == 0){
+				counter_x = 5;
+				state_MODE1_x = 1;
 			}
 			break;
+		default:
+			break;
 
+	}
+	switch (state_MODE1_y){
+		case 0 :
+			if(timer1_flag == 1){
+				counter_y = 3;
+				state_MODE1_y = 2;
+			}
+			break;
+		case 1:
+			ledredON_y();
+			updateClockBuffer(3, counter_y);
+			if(counter_y == 0){
+				counter_y = 3;
+				state_MODE1_y = 2;
+			}
+			break;
+		case 2:
+			ledgreenON_y();
+			updateClockBuffer(3, counter_y);
+			if(counter_y == 0){
+				counter_y = 2;
+				state_MODE1_y = 3;
+			}
+			break;
+		case 3:
+			ledyellowON_y();
+			updateClockBuffer(3, counter_y );
+			if(counter_y == 0){
+				counter_y = 5;
+				state_MODE1_y = 1;
+			}
+			break;
 		default:
 			break;
 
@@ -85,10 +98,8 @@ void todoMODE1(){
 }
 
 void todoMODE2(){
-	display7SEG1(0);
-	display7SEG2(2);
-	display7SEG3(temp/10);
-	display7SEG4(temp%10);
+	updateClockBuffer(2, temp/10);
+	updateClockBuffer(3, temp%10);
 	if(timer1_flag == 1){
 		ledredON();
 		setTimer2(5);
@@ -106,14 +117,11 @@ void todoMODE2(){
 	if(isButton3PRESS() == 1){
 		value = temp;
 	}
-
 }
 
 void todoMODE3(){
-	display7SEG1(0);
-	display7SEG2(3);
-	display7SEG3(temp/10);
-	display7SEG4(temp%10);
+	updateClockBuffer(2, temp/10);
+	updateClockBuffer(3, temp%10);
 	if(timer1_flag == 1){
 		ledyellowON();
 		setTimer2(5);
@@ -134,10 +142,8 @@ void todoMODE3(){
 }
 
 void todoMODE4(){
-	display7SEG1(0);
-	display7SEG2(4);
-	display7SEG3(temp/10);
-	display7SEG4(temp%10);
+	updateClockBuffer(2, temp/10);
+	updateClockBuffer(3, temp%10);
 	if(timer1_flag == 1){
 		ledgreenON();
 		setTimer2(5);

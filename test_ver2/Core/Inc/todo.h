@@ -12,8 +12,13 @@
 
 extern float value;
 extern int temp;
-extern int state_MODE1;
-
+extern int counter_x;
+extern int counter_y;
+extern int state_MODE1_x;
+extern int state_MODE1_y;
+extern int state_MODE2 ;
+extern int state_MODE3 ;
+extern int state_MODE4 ;
 
 void todoMODE1();
 void todoMODE2();
